@@ -74,4 +74,7 @@ int main(int argc, char** argv)
     graphobj.addedge(5,2);
     graphobj.addedge(6,1);
     graphobj.printGraph();
+      
+    cout << "------ BFS -------" << endl;
+    graphobj.bfs(1);
 }
