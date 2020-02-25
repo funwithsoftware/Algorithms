@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <queue>
 using namespace std;
 
 class MyGraph
@@ -29,9 +30,36 @@ class MyGraph
         }
     }
   
+  void bfs(int source)
+  {
+        bool (*visited) = new bool[m_N+1];
+        
+        for(int i=1;i<=m_N;i++)
+            visited[i] = false;
+    
+        q.push(source);
+        cout << source ;
+        visited[source] = true;
+        while(!q.empty())
+        {
+            int i = q.front();
+            q.pop();
+            for(list<int>::iterator itr = m_adj[i].begin();
+                itr != m_adj[i].end();
+                itr++)
+            {
+                if(!visited[*itr])
+                {
+                    cout << " " << *itr;
+                    visited[*itr] = 1;
+                    q.push(*itr);
+                }
+            }
+  }
   private:
     int m_N;
     list<int>(*m_adj);
+    queue<int>q;
 };
 
 int main(int argc, char** argv)
