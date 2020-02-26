@@ -55,6 +55,7 @@ class MyGraph
                     q.push(*itr);
                 }
             }
+        }
   }
   private:
     int m_N;
